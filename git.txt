@@ -1,0 +1,109 @@
+git --version
+git init
+git add . 
+git commit -m "some message"
+git remote add origin
+git push -u origin main
+
+----How to revert to previous versions of our code if nedded using commits----
+
+1->view commits
+2->decide to what version you want to get back
+3->option A: go pack to the previous version temporarily
+4->optin B: go back to the previous version permanently
+
+
+1->git log --online (log all commits in one line)
+2->decide to what version you want to get back to
+3->git checkout <command_id>
+4->git reset --soft <commit_id>
+   git reset --mixed <command_id>
+   git reset --hard <command_id>
+
+
+
+Type         keep changes staged    keep changes in the project file on      Remove changes
+                                              local computer?
+Soft reset          yes                         yes                                 No
+mixed reset         No                          yes                                 No
+hard reset          No                          No                                  Yes
+
+
+
+but this way of reverting is not safe, thus use branching
+Branches provide more isolated way ro cretae different versions
+
+
+Challenges working on the same branching
+
+Problem             Description                                 Real-life example
+
+Merge conficts      Conflicts occur when multiple               Developer A writes code on line 30 on
+                    people edit the aame file or line, and      the file_1. "developer B writes the code
+                    GIt diesn't know which to keep              on the same line 30 in the same file_1. Git 
+                                                                doesn't know what change to keep
+
+Disruptive changes  Buggy or incomplete work from one           Developer A uploads unfiinished code for a
+                    developer might break the branch            new payment system, Dveloper B pulls the branch and
+                    for others                                  finds that the site crahes beacause of A's work
+
+Lack of isolation   Everyone works on the same branch           Developer A is experimenting with a dark mode   
+                    maxing incomplete and finished work,        feature. Developer B wants to fix a  bug that is stuck 
+                    makming it hard to test or experiment       dealing with A's experimental code
+
+
+
+----how to revert to previous versions of ours code if needed using branches------
+
+1-> create a new branch
+2-> checkout the new branches
+3-> work on new branch
+4-> if we want to revert to the previous branch we can just
+    checkout to the previous branch
+
+
+1->git branch <new branch name>
+2->git checkout <new branch name>
+3->work in IDE
+3->git checkout <previous branch name>
+
+
+
+
+------Collaborate on github-----
+
+Teminlogy
+
+- Base branch: the common branch wher merged code is stored
+
+- Clone: create a copy of the project frimm the remote repository to your local machine
+
+- Pull request: a request to merge your changes into the base branch, where the main code is mantained
+
+- Merge conglicts: merge coniflicts occur when two people for even the same person
+                    at different times mamke chnges to the same part of a file in a prohect , and Git cannot 
+                    determine which changes to keep
+
+
+1-> clone the project to your local computer
+2-> cretae a new branch for your feature
+3-> make changes to the new branch
+4-> pull the latest changes from the remote repository and resilve any code conflicts on your IDE
+5-> push your new branch to the remote repository
+6-> create a pull request
+7-> after the pull request is approved, resolve any new merge cinflicts and merge your
+    branch into the common branch
+8-> delete your feature branch
+
+
+
+1-> git clone <repositoy name>
+2-> git checkout -b <new branch name>
+3-> work + then stage abd commit your code (git add . + git commit -m "message")
+4-> git pull origin <base branch name>
+5-> git push origin <new branch name>
+6-> go to github and create a pull request  
+7-> after the pull request is approved, go to your IDE and pull the latest changes from the
+remote repository
+8-> git checkout <base branch name>
+9-> git merge <new branch name>... and so on dp your work
