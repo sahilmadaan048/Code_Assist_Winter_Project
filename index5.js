@@ -1,0 +1,10 @@
+/*
+Make a simple API
+
+make a server
+create a header and API body
+create an API With static data
+put data in another file
+interview question
+
+*/
