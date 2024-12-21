@@ -1,0 +1,10 @@
+/*
+Start with Mongoose
+
+what is mongoose
+differentiate betweeb Mongoose and MongoDB package
+install mongoose
+what is schemas
+what is model
+connect node js
+ */
